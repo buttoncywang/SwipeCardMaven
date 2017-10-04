@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC
+"-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="User" type="com.swipecard.model.User" />
+		<typeAlias alias="Employee" type="com.swipecard.model.Employee"/>
+		<typeAlias alias="EmployeeTime" type="com.swipecard.model.EmployeeTime"/>
+		<typeAlias alias="EmpShiftInfos" type="com.swipecard.model.EmpShiftInfos"/>
+		<typeAlias alias="EmpSwipeInfos" type="com.swipecard.model.EmpSwipeInfos"/>
+		
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">							
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost/swipecard?serverTimezone=UTC" /> 
+				<property name="username" value="root" />
+				<property name="password" value="foxlink" />				
+				<property name="poolMaximumActiveConnections" value="5" />
+                <property name="poolMaximumIdleConnections" value="0" />				
+			<!-- 	<property name="poolPingEnabled" value="true"/>
+                <property name="poolPingQuery" value="select now() from kpi.lastupdatedlog limit 1"/>
+                <property name="poolPingConnectionsNotUsedFor" value="3600000"/>  -->                
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="com/swipecard/model/User.xml" />
+	</mappers>
+</configuration>
